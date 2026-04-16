@@ -1,0 +1,6 @@
+{
+  "name": "Noor - Global Prayer Timings",
+  "description": "Global Islamic prayer timings with programmatic SEO, local city landing pages, and spiritual tracking tools.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["Next.js 15", "Programmatic SEO", "Prayer Timings API", "Offline Support", "Firebase Integration"]
+}

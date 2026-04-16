@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Sensitive user profile information.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "name": { "type": "string", "description": "Display name" },
+        "email": { "type": "string", "format": "email", "description": "Email address" },
+        "photoURL": { "type": "string", "format": "uri", "description": "Profile picture URL" },
+        "role": { "type": "string", "enum": ["user", "admin"], "description": "Access role" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account creation date" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Private spiritual reflection entry.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID" },
+        "text": { "type": "string", "description": "Content of the reflection" },
+        "tags": { "type": "array", "items": { "type": "string" }, "description": "Reflection categories" },
+        "date": { "type": "string", "format": "date-time", "description": "Entry date" }
+      },
+      "required": ["userId", "text", "date"]
+    },
+    "PrayerRequest": {
+      "title": "PrayerRequest",
+      "description": "Community prayer request.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorName": { "type": "string" },
+        "text": { "type": "string" },
+        "prayersCount": { "type": "number", "description": "Number of users who prayed" },
+        "isAnonymous": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorUid", "text", "prayersCount", "createdAt"]
+    },
+    "TasbihSession": {
+       "title": "TasbihSession",
+       "description": "Historical record of a tasbih session.",
+       "type": "object",
+       "properties": {
+         "userId": { "type": "string" },
+         "count": { "type": "number" },
+         "target": { "type": "number" },
+         "date": { "type": "string", "format": "date-time" }
+       },
+       "required": ["userId", "count", "date"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents."
+    },
+    "/users/{userId}/journal/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "User's private spiritual journal."
+    },
+    "/prayerRequests/{requestId}": {
+      "schema": "PrayerRequest",
+      "description": "Public community prayer requests."
+    },
+    "/users/{userId}/tasbih/{sessionId}": {
+      "schema": "TasbihSession",
+      "description": "User's tasbih history."
+    }
+  }
+}
