@@ -64,14 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   };
 }
 
-export async function generateStaticParams() {
-  return [
-    { country: "pakistan", city: "faisalabad" },
-    { country: "pakistan", city: "lahore" },
-    { country: "united-kingdom", city: "london" },
-    { country: "saudi-arabia", city: "mecca" },
-  ];
-}
+export const dynamic = 'force-dynamic';
 
 export default async function CityPage({ params }: { params: Promise<{ country: string; city: string }> }) {
   const { country, city } = await params;

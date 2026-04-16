@@ -14,6 +14,8 @@ const countryData: Record<string, string[]> = {
   turkey: ["Istanbul", "Ankara", "Izmir", "Bursa"],
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function CountryPage({ params }: { params: Promise<{ country: string }> }) {
   const { country } = await params;
   const cities = countryData[country.toLowerCase().replace(/-/g, " ")];

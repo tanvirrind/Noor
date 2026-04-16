@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronRight, Play, BookOpen, Quote, Sparkles, Clock } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default function ReflectionsPage() {
   const reflections = [
     { title: "The Power of Patience", duration: "5 min", category: "Mindfulness", icon: <Quote /> },

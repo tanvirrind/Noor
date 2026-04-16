@@ -70,8 +70,7 @@ export default function HomePage() {
   if (!mounted) return null;
 
   return (
-    <ClientWrapper>
-      <div className="min-h-screen flex flex-col selection:bg-primary selection:text-white">
+    <div className="min-h-screen flex flex-col selection:bg-primary selection:text-white">
         {showOnboarding && <Onboarding onComplete={handleOnboardingComplete} />}
 
       {/* Header */}
@@ -325,6 +324,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-    </ClientWrapper>
   );
 }
