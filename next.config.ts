@@ -1,16 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['lucide-react', 'motion'],
+  serverExternalPackages: ['firebase'],
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'motion'],
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.optimization.splitChunks = false;
+    }
+    return config;
+  },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  /* config options here */
-  experimental: {
-    // any experimental features if needed
   },
   images: {
     remotePatterns: [
