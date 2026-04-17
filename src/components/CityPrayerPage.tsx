@@ -43,22 +43,21 @@ export default function CityPrayerPage({
       <header className="glass sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center gap-4">
           <Link href={`/${country}`} className="p-2 -ml-2 hover:bg-white/20 rounded-lg transition-colors">
-            <ChevronRight className="w-5 h-5 rotate-180 text-brandGreen" />
+            <ChevronRight className="w-5 h-5 rotate-180 text-primary" />
           </Link>
-          <img src="/logo.png" alt="Souq Al Madina" className="w-10 h-10 rounded-full border-2 border-brandGold object-contain bg-white" />
           <div className="flex-1">
-            <h1 className="text-lg font-bold tracking-tight text-brandGreen">{cityName}</h1>
-            <p className="text-[10px] text-brandGreen/60 uppercase font-bold tracking-widest">{countryName}</p>
+            <h1 className="text-lg font-bold tracking-tight text-primary">{cityName}</h1>
+            <p className="text-[10px] text-primary/60 uppercase font-bold tracking-widest">{countryName}</p>
           </div>
           <div className="flex items-center gap-2">
             <button className="p-2 hover:bg-white/20 rounded-full transition-colors">
-              <Share2 className="w-5 h-5 text-brandGreen" />
+              <Share2 className="w-5 h-5 text-primary" />
             </button>
             <button 
               onClick={() => setIsAlertsOpen(true)}
               className="p-2 hover:bg-white/20 rounded-full transition-colors"
             >
-              <Bell className="w-5 h-5 text-brandGreen" />
+              <Bell className="w-5 h-5 text-primary" />
             </button>
           </div>
         </div>
@@ -66,10 +65,10 @@ export default function CityPrayerPage({
 
       <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full space-y-6">
         {/* Hero Card */}
-        <section className="relative overflow-hidden bg-brandGreen text-white rounded-[32px] p-8 md:p-12 shadow-2xl shadow-brandGreen/20">
+        <section className="relative overflow-hidden glass-dark text-white rounded-[32px] p-8 md:p-12 shadow-2xl shadow-primary/20">
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-brandGold text-sm font-bold uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-accent text-sm font-bold uppercase tracking-widest">
                 <MapPin className="w-4 h-4" />
                 <span>{cityName}, {countryName}</span>
               </div>
@@ -100,27 +99,27 @@ export default function CityPrayerPage({
               className={`p-6 rounded-3xl border transition-all duration-300 ${
                 prayer.secondary 
                   ? "glass border-transparent opacity-60" 
-                  : "glass hover:border-brandGold hover:shadow-xl hover:shadow-black/20"
+                  : "glass hover:border-accent hover:shadow-xl hover:shadow-black/20"
               }`}
             >
               <div className="flex items-start justify-between mb-8">
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center glass`}>
-                  <Clock className={`w-6 h-6 text-brandGreen`} />
+                  <Clock className={`w-6 h-6 text-primary`} />
                 </div>
                 {!prayer.secondary && (
                    <button 
                     onClick={() => setIsAlertsOpen(true)}
-                    className="text-brandGreen/60 hover:text-brandGold transition-colors"
+                    className="text-primary/60 hover:text-accent transition-colors"
                    >
                      <Bell className="w-4 h-4" />
                    </button>
                 )}
               </div>
               <div className="space-y-1">
-                <h3 className={`text-sm uppercase tracking-widest font-bold text-brandGreen/60`}>
+                <h3 className={`text-sm uppercase tracking-widest font-bold text-primary/60`}>
                   {prayer.name}
                 </h3>
-                <p className={`text-4xl font-black tracking-tighter text-brandGreen`}>
+                <p className={`text-4xl font-black tracking-tighter text-primary`}>
                   {prayer.time}
                 </p>
               </div>
@@ -131,21 +130,21 @@ export default function CityPrayerPage({
         {/* Info & Method */}
         <div className="p-6 glass rounded-[32px] flex flex-col md:flex-row items-center gap-6">
           <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center flex-shrink-0">
-            <Info className="w-6 h-6 text-brandGreen" />
+            <Info className="w-6 h-6 text-primary" />
           </div>
-          <div className="flex-1 space-y-1 text-center md:text-left text-brandGreen">
+          <div className="flex-1 space-y-1 text-center md:text-left text-primary">
             <h4 className="font-bold">Calculation Method</h4>
-            <p className="text-sm text-brandGreen/60">{meta.method.name}</p>
+            <p className="text-sm text-primary/60">{meta.method.name}</p>
           </div>
-          <div className="px-6 py-3 glass rounded-2xl text-xs font-bold uppercase tracking-widest text-brandGreen">
+          <div className="px-6 py-3 glass rounded-2xl text-xs font-bold uppercase tracking-widest text-primary">
             Verified Data
           </div>
         </div>
 
         {/* SEO Article */}
-        <article className="prose prose-stone max-w-none p-8 md:p-12 glass rounded-[40px] text-brandGreen">
-          <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-6 text-brandGreen">About Prayer Times in {cityName}</h2>
-          <div className="space-y-4 text-brandGreen opacity-80 leading-relaxed">
+        <article className="prose prose-stone max-w-none p-8 md:p-12 glass rounded-[40px] text-primary">
+          <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-6 text-primary">About Prayer Times in {cityName}</h2>
+          <div className="space-y-4 text-primary opacity-80 leading-relaxed">
             <p>
               Accurate prayer timings are a fundamental part of a Muslim's daily routine. In {cityName}, {countryName}, the timings for {prayers.filter(p => !p.secondary).map(p => p.name).join(", ")} shift slightly every day based on the solar calendar.
             </p>
