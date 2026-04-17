@@ -135,7 +135,7 @@ export default function TasbihCounter() {
         <div className="max-w-md text-center space-y-4">
           <h2 className="text-2xl font-black tracking-tight text-white">Spiritual Counter</h2>
           <p className="text-white/60 text-sm font-medium leading-relaxed italic">
-            "Keep your tongue moist with the remembrance of Allah." 
+            &quot;Keep your tongue moist with the remembrance of Allah.&quot; 
             <br />
             Tap the center to begin.
           </p>

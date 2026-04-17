@@ -11,10 +11,14 @@ import firebaseConfig from "../../firebase-applet-config.json";
 // Initialize Firebase
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-// Initialize Firestore with persistent cache for offline support
-export const db = initializeFirestore(app, {
-  localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
-}, firebaseConfig.firestoreDatabaseId);
+// Initialize Firestore with persistent cache for offline support (Client only)
+const isServer = typeof window === "undefined";
+
+export const db = isServer 
+  ? getFirestore(app, firebaseConfig.firestoreDatabaseId)
+  : initializeFirestore(app, {
+      localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
+    }, firebaseConfig.firestoreDatabaseId);
 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();

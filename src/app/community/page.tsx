@@ -188,7 +188,7 @@ export default function CommunityPage() {
                         </button>
                       </div>
                       <p className="text-xl font-serif italic text-primary/80 leading-relaxed">
-                        "{req.text}"
+                        &quot;{req.text}&quot;
                       </p>
                       <div className="pt-4 flex items-center justify-between border-t border-accent/20 border-dashed">
                         <div className="flex items-center gap-1.5">

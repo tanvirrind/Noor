@@ -196,7 +196,7 @@ export default function HomePage() {
               </div>
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
-              "Indeed, success is only from <span className="text-accent font-serif italic">Allah</span>."
+              &quot;Indeed, success is only from <span className="text-accent font-serif italic">Allah</span>.&quot;
             </h2>
             <p className="text-white/60 text-lg leading-relaxed font-serif italic">
               Focus on the process, remain consistent in your prayers, and trust that your efforts are being recorded by the Most Merciful.
