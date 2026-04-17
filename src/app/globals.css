@@ -1,31 +1,18 @@
-@import "tailwindcss";
+import type { Config } from "tailwindcss";
 
-@layer theme {
-  :root {
-    --primary: #0D3B31;
-    --accent: #D4AF37;
-    --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --text-dark: #1A202C;
-    --text-muted: #718096;
-    --radius: 1.5rem;
-  }
-}
-
-body {
-  background: radial-gradient(circle at top left, #0D3B31 0%, #1a4a40 40%, #2D5A27 100%);
-  background-attachment: fixed;
-  color: var(--text-dark);
-}
-
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-}
-
-.glass-dark {
-  background: rgba(13, 59, 49, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+export default {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brandGreen: "#144327",
+        brandGold: "#C8A962",
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
